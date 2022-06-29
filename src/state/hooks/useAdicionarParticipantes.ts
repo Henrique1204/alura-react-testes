@@ -12,7 +12,9 @@ const useAdicionarParticipantes = (): adicionarParticipanteFn => {
 
   const adicionarParticipante: adicionarParticipanteFn = (participante) => {
     if (lista.includes(participante)) {
-      return setErro("Nome duplicados não são permitidos.");
+      setErro("Nome duplicados não são permitidos.");
+
+      return setTimeout(() => setErro(""), 5 * 1000);
     }
 
     setLista((prevLista) => [...prevLista, participante]);
