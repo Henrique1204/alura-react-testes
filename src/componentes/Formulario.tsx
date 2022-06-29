@@ -1,6 +1,7 @@
 import React from "react";
 
 import useAdicionarParticipantes from "../state/hooks/useAdicionarParticipantes";
+import useMensagemDeErro from "../state/hooks/useMensagemDeErro";
 
 const Formulario: React.FC = () => {
   const [nome, setNome] = React.useState("");
@@ -8,6 +9,7 @@ const Formulario: React.FC = () => {
   const inputRef = React.useRef<HTMLInputElement>(null);
 
   const adicionarParticipante = useAdicionarParticipantes();
+  const mensagemDeError = useMensagemDeErro();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -27,9 +29,9 @@ const Formulario: React.FC = () => {
         placeholder="Insira os nomes dos participante"
       />
 
-      <button disabled={!nome}>
-        Adicionar
-      </button>
+      <button disabled={!nome}>Adicionar</button>
+
+      {mensagemDeError && <p role="alert">{mensagemDeError}</p>}
     </form>
   );
 };
