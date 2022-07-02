@@ -39,7 +39,7 @@ describe("Na página de sorteio", () => {
       </RecoilRoot>
     );
 
-    const opcoes = screen.queryAllByRole("option");
+    const opcoes = screen.queryAllByTestId("opcao-participante");
     expect(opcoes).toHaveLength(participantes.length);
   });
 

@@ -33,10 +33,12 @@ const Sorteio: React.FC = () => {
           onChange={({ target }) => setParticipanteDaVez(target.value)}
           required
         >
+          <option value='' disabled>Selecione o seu nome</option>
           {participantes.map((participante, key) => (
             <option
               value={participante}
               key={`${participante.replace(/ /g, "-")}-${key}`}
+              data-testid="opcao-participante"
             >
               {participante}
             </option>

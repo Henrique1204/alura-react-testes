@@ -5,7 +5,7 @@ const realizarSorteio = (participantes: string[]): Map<string, string> => {
   const participantesEmbaralhados = embaralharLista(participantes);
 
   const resultado = participantesEmbaralhados.reduce(
-    (acc: Map<string, string>, participante, indice, participantes) => {
+    (acc: Map<string, string>, participante, indice) => {
       const primeiroIndice = 0;
       const ultimoIndice = totalParticipantes - 1;
 
@@ -14,7 +14,7 @@ const realizarSorteio = (participantes: string[]): Map<string, string> => {
       const indiceDoAmigo =
         indice === ultimoIndice ? primeiroIndice : proximoIndice;
 
-      acc.set(participante, participantes[indiceDoAmigo]);
+      acc.set(participante, participantesEmbaralhados[indiceDoAmigo]);
 
       return new Map(acc);
     },
