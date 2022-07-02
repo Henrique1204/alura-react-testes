@@ -2,13 +2,19 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 
 import useListaDeParticipantes from "../state/hooks/useListaDeParticipantes";
+import useSorteador from "../state/hooks/useSorteador";
 
 const Rodape: React.FC = () => {
   const participantes = useListaDeParticipantes();
 
   const navigate = useNavigate();
+  const sortear = useSorteador();
 
-  const iniciar = () => navigate("/sorteio");
+  const iniciar = () => {
+    sortear();
+
+    navigate("/sorteio");
+  };
 
   return (
     <footer>
