@@ -10,11 +10,11 @@ import Rodape from "./Rodape";
 
 const mockUseNavigate = jest.fn();
 
-jest.mock("../state/hooks/useListaDeParticipantes");
-
 jest.mock("react-router-dom", () => ({
   useNavigate: () => mockUseNavigate,
 }));
+
+jest.mock("../state/hooks/useListaDeParticipantes");
 
 describe("Onde não existam participantes suficientes.", () => {
   beforeEach(() => {
