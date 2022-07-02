@@ -4,7 +4,7 @@ import { RecoilRoot } from "recoil";
 import Formulario from "./Formulario";
 
 describe("O comportamento do formulário.", () => {
-  test("Quando o input está vazio, novos participantes não podem ser adicionados.", () => {
+  it("Quando o input está vazio, novos participantes não podem ser adicionados.", () => {
     render(
       <RecoilRoot>
         <Formulario />
@@ -20,7 +20,7 @@ describe("O comportamento do formulário.", () => {
     expect(button).toBeDisabled();
   });
 
-  test("Adicionar um participante caso exista um preenchido.", () => {
+  it("Adicionar um participante caso exista um preenchido.", () => {
     render(
       <RecoilRoot>
         <Formulario />
@@ -41,7 +41,7 @@ describe("O comportamento do formulário.", () => {
     expect(input).toHaveValue("");
   });
 
-  test("Nomes duplicados não podem ser adicionados na lista.", () => {
+  it("Nomes duplicados não podem ser adicionados na lista.", () => {
     render(
       <RecoilRoot>
         <Formulario />
@@ -70,7 +70,7 @@ describe("O comportamento do formulário.", () => {
     );
   });
 
-  test("A mensagem de erro deve sumir após os timers.", () => {
+  it("A mensagem de erro deve sumir após os timers.", () => {
     jest.useFakeTimers();
 
     render(
